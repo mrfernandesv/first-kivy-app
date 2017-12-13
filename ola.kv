@@ -1,0 +1,36 @@
+#:kivy 1.9.1
+#:import ColorH kivy.utils.get_color_from_hex
+
+<TelaLayout@FloatLayout>:
+    size_hint: 1, 1
+    canvas.before:
+        Color:
+            rgba: ColorH("3399ff")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    
+<FormLayout@StackLayout>:
+    orientation: "tb-lr"
+    size_hint: .5, .5
+    pos_hint: {"center_x": .5, "center_y": .5}
+ 
+    Label:
+        text: "Digite seu nome"
+        font_size: 25
+        size_hint: 1, .2
+
+    TextInput:
+        id: text_input
+        font_size: 30
+        size_hint: 1, .2
+
+    Button:
+        text: "Confirmar"
+        size_hint: 1, .2
+        background_color: ColorH("3385ff")
+        on_press: root.print_nome(text_input.text)
+
+TelaLayout:
+    FormLayout:
